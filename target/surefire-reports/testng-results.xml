@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="14" total="16" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-08-12T14:22:56Z" name="Suite pruebas de regresión" finished-at="2022-08-12T14:23:19Z" duration-ms="23258">
+    <groups>
+    </groups>
+    <test started-at="2022-08-12T14:22:56Z" name="Casos de prueba" finished-at="2022-08-12T14:23:19Z" duration-ms="23258">
+      <class name="tests.Tests3">
+        <test-method is-config="true" signature="posPrueba()[pri:0, instance:tests.Tests3@74ea2410]" started-at="2022-08-12T14:23:09Z" name="posPrueba" finished-at="2022-08-12T14:23:16Z" duration-ms="6978" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- posPrueba -->
+        <test-method signature="CP001_login_fallido()[pri:0, instance:tests.Tests3@74ea2410]" started-at="2022-08-12T14:23:16Z" name="CP001_login_fallido" finished-at="2022-08-12T14:23:19Z" duration-ms="3136" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CP001_login_fallido -->
+        <test-method is-config="true" signature="preparacionPrueba()[pri:0, instance:tests.Tests3@74ea2410]" started-at="2022-08-12T14:23:19Z" name="preparacionPrueba" finished-at="2022-08-12T14:23:19Z" duration-ms="226" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preparacionPrueba -->
+      </class> <!-- tests.Tests3 -->
+      <class name="tests.Tests">
+        <test-method is-config="true" signature="posPrueba()[pri:0, instance:tests.Tests@25ce9dc4]" started-at="2022-08-12T14:22:56Z" name="posPrueba" finished-at="2022-08-12T14:23:03Z" duration-ms="6992" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- posPrueba -->
+        <test-method signature="CP001_login_fallido()[pri:0, instance:tests.Tests@25ce9dc4]" started-at="2022-08-12T14:23:03Z" name="CP001_login_fallido" finished-at="2022-08-12T14:23:09Z" duration-ms="5563" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CP001_login_fallido -->
+        <test-method is-config="true" signature="preparacionPrueba()[pri:0, instance:tests.Tests@25ce9dc4]" started-at="2022-08-12T14:23:09Z" name="preparacionPrueba" finished-at="2022-08-12T14:23:09Z" duration-ms="339" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preparacionPrueba -->
+      </class> <!-- tests.Tests -->
+    </test> <!-- Casos de prueba -->
+  </suite> <!-- Suite pruebas de regresión -->
+</testng-results>
