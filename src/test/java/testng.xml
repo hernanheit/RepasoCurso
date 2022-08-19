@@ -3,6 +3,9 @@
     <test name="Casos de prueba" >
         <classes>
             <class name="tests.Tests">
+                <methods>
+                    <include name="CP001_login_fallido"/>
+                </methods>
 			</class>
         </classes>
     </test>
