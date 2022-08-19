@@ -49,9 +49,9 @@ public class Tests {
 
         //homePage.esperarXSegundos(60000);
 
-        homePage.PasarEspanol();
+        homePage.pasarEspanol();
 
-        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
 
         Assert.assertEquals(homePage.obtenerErrorLogin(), dataCPs.get(3));
 
@@ -64,9 +64,9 @@ public class Tests {
 
         //homePage.esperarXSegundos(60000);
 
-        homePage.PasarEspanol();
+        homePage.pasarEspanol();
 
-        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
 
         Assert.assertEquals(welcomePage.obtenerMsjBienvenida(), dataCPs.get(3));
 
@@ -77,17 +77,25 @@ public class Tests {
         //Preparar data
         dataCPs = DataDriven.getData("CP003_cerrar_sesion");
 
-        homePage.PasarEspanol();
-        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        homePage.pasarEspanol();
+        homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        welcomePage.cerrarSesion();
 
-    }
-
-    /*@Test
-    public void CP004(){
+        Assert.assertEquals(homePage.obtenerIniciarSesion(), dataCPs.get(3));
 
     }
 
     @Test
+    public void CP004_modo_oscuro(){
+        //Preparar data
+        dataCPs = DataDriven.getData("CP004_modo_oscuro");
+
+        homePage.pasarEspanol();
+        homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        welcomePage.activarModoOscuro();
+    }
+
+    /*@Test
     public void CP005(){
 
     }
