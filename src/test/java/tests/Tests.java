@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.HomePage;
+import pages.ResultadoDeBusquedaPage;
 import pages.StartPage;
 import pages.WelcomePage;
 import utils.DataDriven;
@@ -18,8 +19,9 @@ public class Tests {
     private WelcomePage welcomePage;
     private StartPage startPage;
     private ArrayList<String> dataCPs;
+    private ResultadoDeBusquedaPage resultadoDeBusquedaPage;
 
-    @BeforeTest
+    @BeforeClass
     public void preparacionEjecucion(){
         //Instanciar los objetos
 
@@ -29,19 +31,24 @@ public class Tests {
                 PropertiesDriven.getProperty("propertyDriver"));
         welcomePage = new WelcomePage(homePage.getDriver());
         homePage.cargarSitio(PropertiesDriven.getProperty("url"));
+        resultadoDeBusquedaPage = new ResultadoDeBusquedaPage(welcomePage.getDriver());
+        //homePage.maximizarBrowser();
+
+    }
+
+
+
+
+    @BeforeMethod
+    public void preparacionPrueba(){
+
         homePage.maximizarBrowser();
     }
 
-    //@BeforeMethod
-    //public void preparacionPrueba(){
-    //    homePage.cargarSitio(PropertiesDriven.getProperty("url"));
-    //    homePage.maximizarBrowser();
-    //}
-
-    /*@AfterMethod
+   /* @AfterMethod
     public void posPrueba(){
-            loginPage.cerrarBrowser();
-    } */
+            homePage.cerrarBrowser();
+    }*/
     @Test
     public void CP001_login_fallido(){
         //Preparar data
@@ -49,7 +56,7 @@ public class Tests {
 
         //homePage.esperarXSegundos(60000);
 
-        homePage.PasarEspanol();
+        //homePage.PasarEspanol();
 
         homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
 
@@ -64,7 +71,7 @@ public class Tests {
 
         //homePage.esperarXSegundos(60000);
 
-        homePage.PasarEspanol();
+        //homePage.PasarEspanol();
 
         homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
 
@@ -77,17 +84,30 @@ public class Tests {
         //Preparar data
         dataCPs = DataDriven.getData("CP003_cerrar_sesion");
 
-        homePage.PasarEspanol();
+        //homePage.PasarEspanol();
         homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
 
     }
 
-    /*@Test
-    public void CP004(){
+    @Test
+    public void CP008_Darle_Me_gusta_a_una_pagina(){
+        dataCPs = DataDriven.getData("CP008_meGusta_pagina");
+        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        welcomePage.buscarPag(dataCPs.get(3));
+        welcomePage.obtenerPagBuscada();
+        if (welcomePage.obtenerPagBuscada().contains(dataCPs.get(3))){
+            welcomePage.irAPagBuscada();
+
+
+        } else {
+            System.out.println("no se encontro");
+        }
+        resultadoDeBusquedaPage.darMeGusta();
+
 
     }
 
-    @Test
+    /*@Test
     public void CP005(){
 
     }

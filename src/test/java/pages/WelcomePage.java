@@ -15,6 +15,8 @@ public class WelcomePage extends BaseClass {
     By locatorBtnPantalla = By.xpath("//body/div[@id='mount_0_0_7u']/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]");
     By locatorBtnActivado = By.xpath("//body/div[@id='mount_0_0_7u']/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/label[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]");
     By locatorLblBinvenida = By.xpath("//span[contains(text(),'Te damos la bienvenida a Facebook, Juan')]");
+    By locatorBtnBusqueda = By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/label[1]/input[1]");
+    By locatorLblTsoft = By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/ul[1]/li[1]/div[1]/a[1]/div[1]/div[2]/div[1]");
 
     //Acciones de la pagina
     public void IrInicio(){
@@ -32,7 +34,21 @@ public class WelcomePage extends BaseClass {
 
     }
     public String obtenerMsjBienvenida(){
+
+        esperarXSegundos(10000);
         return obtenerTexto(esperaExplicita(locatorLblBinvenida));
+    }
+
+    public void buscarPag(String pag){
+        agregarTexto(esperaExplicita(locatorBtnBusqueda),pag);
+    }
+
+    public String obtenerPagBuscada (){
+        return obtenerTexto(esperaExplicita(locatorLblTsoft));
+    }
+
+    public void irAPagBuscada (){
+        click(esperaExplicita(locatorLblTsoft));
     }
 
 }
