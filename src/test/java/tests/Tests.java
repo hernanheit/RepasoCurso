@@ -57,17 +57,32 @@ public class Tests {
 
     }
 
-   /* @Test
-    public void CP002(){
+    @Test
+    public void CP002_login_exitoso(){
+        //Preparar data
+        dataCPs = DataDriven.getData("CP002_login_exitoso");
+
+        //homePage.esperarXSegundos(60000);
+
+        homePage.PasarEspanol();
+
+        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
+
+        Assert.assertEquals(welcomePage.obtenerMsjBienvenida(), dataCPs.get(3));
 
     }
 
     @Test
-    public void CP003(){
+    public void CP003_cerrar_sesion(){
+        //Preparar data
+        dataCPs = DataDriven.getData("CP003_cerrar_sesion");
+
+        homePage.PasarEspanol();
+        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
 
     }
 
-    @Test
+    /*@Test
     public void CP004(){
 
     }
