@@ -106,7 +106,7 @@ public class Tests {
         welcomePage.clickBuscar();
         resultadoDeBusquedaPage.enviarSolicitudYCancelarSolicitud();
         resultadoDeBusquedaPage.solicitudEnviada();
-        Assert.
+
 }
 
     @Test
