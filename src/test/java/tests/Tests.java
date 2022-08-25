@@ -1,6 +1,8 @@
 package tests;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.HomePage;
@@ -28,20 +30,15 @@ public class Tests {
         homePage.conexionDriver(PropertiesDriven.getProperty("browser"),PropertiesDriven.getProperty("rutaDriver"),
                 PropertiesDriven.getProperty("propertyDriver"));
         welcomePage = new WelcomePage(homePage.getDriver());
+        startPage = new StartPage(homePage.getDriver());
         homePage.cargarSitio(PropertiesDriven.getProperty("url"));
         homePage.maximizarBrowser();
     }
 
-    //@BeforeMethod
-    //public void preparacionPrueba(){
-    //    homePage.cargarSitio(PropertiesDriven.getProperty("url"));
-    //    homePage.maximizarBrowser();
-    //}
-
-    /*@AfterMethod
+    /*@AfterTest
     public void posPrueba(){
-            loginPage.cerrarBrowser();
-    } */
+            homePage.cerrarBrowser();
+    }*/
     @Test
     public void CP001_login_fallido(){
         //Preparar data
@@ -93,14 +90,24 @@ public class Tests {
         homePage.pasarEspanol();
         homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
         welcomePage.activarModoOscuro();
-    }
+        String resultado = welcomePage.verificarModoOscuro();
 
-    /*@Test
-    public void CP005(){
+        Assert.assertEquals(resultado,dataCPs.get(3));
 
     }
 
     @Test
+    public void CP010_crear_historia(){
+        dataCPs = DataDriven.getData("CP010_crear_historia");
+        homePage.pasarEspanol();
+        homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        welcomePage.irInicio();
+        startPage.crearHistoria(dataCPs.get(3));
+        String resultado = startPage.leerHistoria();
+        Assert.assertEquals(resultado,dataCPs.get(3));
+    }
+
+    /*@Test
     public void CP006()
     }
 
