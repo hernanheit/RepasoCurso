@@ -21,7 +21,12 @@ public class Tests {
     private ArrayList<String> dataCPs;
     private ResultadoDeBusquedaPage resultadoDeBusquedaPage;
 
-    @BeforeClass
+    @AfterMethod
+    public void posPrueba(){
+        homePage.cerrarBrowser();
+    }
+
+    @BeforeMethod
     public void preparacionEjecucion(){
         //Instanciar los objetos
 
@@ -32,23 +37,20 @@ public class Tests {
         welcomePage = new WelcomePage(homePage.getDriver());
         homePage.cargarSitio(PropertiesDriven.getProperty("url"));
         resultadoDeBusquedaPage = new ResultadoDeBusquedaPage(welcomePage.getDriver());
-        //homePage.maximizarBrowser();
+        homePage.maximizarBrowser();
 
     }
 
 
 
 
-    @BeforeMethod
+  /*  @BeforeMethod
     public void preparacionPrueba(){
 
         homePage.maximizarBrowser();
-    }
-
-   /* @AfterMethod
-    public void posPrueba(){
-            homePage.cerrarBrowser();
     }*/
+
+
     @Test
     public void CP001_login_fallido(){
         //Preparar data
@@ -104,10 +106,22 @@ public class Tests {
         homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
         welcomePage.buscarPag(dataCPs.get(3));
         welcomePage.clickBuscar();
-        resultadoDeBusquedaPage.enviarSolicitudYCancelarSolicitud();
-        resultadoDeBusquedaPage.solicitudEnviada();
-
+        resultadoDeBusquedaPage.irAlPerfil();
+        resultadoDeBusquedaPage.enviarSolicitud();
+        Assert.assertEquals(resultadoDeBusquedaPage.solicitudEnviada(),dataCPs.get(4));
 }
+
+    @Test
+    public void CP007_cancelar_solicitud(){
+        dataCPs = DataDriven.getData("CP007_cancelar_solicitud");
+        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        welcomePage.buscarPag(dataCPs.get(3));
+        welcomePage.clickBuscar();
+        resultadoDeBusquedaPage.irAlPerfil();
+        resultadoDeBusquedaPage.cancelarSolicitud();
+        Assert.assertEquals(resultadoDeBusquedaPage.solicitudCancelada(),dataCPs.get(4));
+
+    }
 
     @Test
     public void CP008_Darle_Me_gusta_a_una_pagina(){
@@ -126,10 +140,7 @@ public class Tests {
 
 
 
-    @Test
-    public void CP007(){
 
-    }
 
     */
 
