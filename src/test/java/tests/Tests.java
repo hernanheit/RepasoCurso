@@ -21,7 +21,12 @@ public class Tests {
     private StartPage startPage;
     private ArrayList<String> dataCPs;
 
-    @BeforeTest
+    @AfterMethod
+    public void posPrueba(){
+        homePage.cerrarBrowser();
+    }
+
+    @BeforeMethod
     public void preparacionEjecucion(){
         //Instanciar los objetos
 
@@ -32,13 +37,11 @@ public class Tests {
         welcomePage = new WelcomePage(homePage.getDriver());
         startPage = new StartPage(homePage.getDriver());
         homePage.cargarSitio(PropertiesDriven.getProperty("url"));
+        //resultadoDeBusquedaPage = new ResultadoDeBusquedaPage(welcomePage.getDriver());
         homePage.maximizarBrowser();
+
     }
 
-    /*@AfterTest
-    public void posPrueba(){
-            homePage.cerrarBrowser();
-    }*/
     @Test
     public void CP001_login_fallido(){
         //Preparar data

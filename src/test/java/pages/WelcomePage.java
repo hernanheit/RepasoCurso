@@ -28,6 +28,7 @@ public class WelcomePage extends BaseClass {
     public void activarModoOscuro() {
         click(esperaExplicita(locatorBtnCuenta));
         click(esperaExplicita(locatorBtnPantalla));
+        esperarXSegundos(1500);
         click(esperaExplicita(locatorBtnActivado));
         click(esperaExplicita(locatorBtnCuentaOscuro));
     }
@@ -35,7 +36,7 @@ public class WelcomePage extends BaseClass {
     public String verificarModoOscuro() {
         WebElement html = esperaExplicita(locatorHtml);
         String color = html.getAttribute("class");
-        driver.quit();
+        //driver.quit();
         return color.substring(11);
         //*[contains(@class, '_9dls __fb-dark-mode')]
         //*[@class = '_9dls __fb-dark-mode' or @ class="_9dls __fb-light-mode"]
