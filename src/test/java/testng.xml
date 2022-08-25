@@ -3,6 +3,12 @@
     <test name="Casos de prueba" >
         <classes>
             <class name="tests.Tests">
+                <methods>
+                    <include name="CP002_login_exitoso"/>
+                    <include name="CP003_cerrar_sesion"/>
+                    <include name="CP010_crear_historia"/>
+                    <include name="CP004_modo_oscuro"/>
+                </methods>
 			</class>
         </classes>
     </test>

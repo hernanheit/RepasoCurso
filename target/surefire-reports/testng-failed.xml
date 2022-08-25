@@ -3,18 +3,11 @@
 <suite name="Failed suite [Suite pruebas de regresión]" guice-stage="DEVELOPMENT" verbose="0">
   <test thread-count="5" name="Casos de prueba(failed)" verbose="0">
     <classes>
-      <class name="tests.Tests3">
-        <methods>
-          <include name="posPrueba"/>
-          <include name="preparacionPrueba"/>
-          <include name="CP001_login_fallido"/>
-        </methods>
-      </class> <!-- tests.Tests3 -->
       <class name="tests.Tests">
         <methods>
-          <include name="preparacionPrueba"/>
+          <include name="CP004_modo_oscuro"/>
+          <include name="preparacionEjecucion"/>
           <include name="posPrueba"/>
-          <include name="CP001_login_fallido"/>
         </methods>
       </class> <!-- tests.Tests -->
     </classes>
