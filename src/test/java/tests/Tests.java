@@ -86,7 +86,7 @@ public class Tests {
         dataCPs = DataDriven.getData("CP003_cerrar_sesion");
 
         //homePage.PasarEspanol();
-        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
 
         Assert.assertEquals(homePage.obtenerIniciarSesion(), dataCPs.get(3));
 
@@ -107,7 +107,7 @@ public class Tests {
     }
     public void CP005_buscar_persona(){
         dataCPs = DataDriven.getData("CP005_buscar_persona");
-        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
         welcomePage.buscarPag(dataCPs.get(3));
         welcomePage.clickBuscar();
         Assert.assertEquals(resultadoDeBusquedaPage.ResultadoDeBusqueda().toLowerCase(), dataCPs.get(3).toLowerCase());
@@ -116,7 +116,7 @@ public class Tests {
     @Test
     public void CP006_enviar_solicitud(){
         dataCPs = DataDriven.getData("CP006_enviar_solicitud");
-        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
         welcomePage.buscarPag(dataCPs.get(3));
         welcomePage.clickBuscar();
         resultadoDeBusquedaPage.irAlPerfil();
@@ -138,7 +138,7 @@ public class Tests {
     @Test
     public void CP007_cancelar_solicitud(){
         dataCPs = DataDriven.getData("CP007_cancelar_solicitud");
-        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
         welcomePage.buscarPag(dataCPs.get(3));
         welcomePage.clickBuscar();
         resultadoDeBusquedaPage.irAlPerfil();
@@ -150,7 +150,7 @@ public class Tests {
     @Test
     public void CP008_Darle_Me_gusta_a_una_pagina(){
         dataCPs = DataDriven.getData("CP008_meGusta_pagina");
-        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
         welcomePage.buscarPag(dataCPs.get(3));
         welcomePage.obtenerPagBuscada();
         if (welcomePage.obtenerPagBuscada().contains(dataCPs.get(3))){
