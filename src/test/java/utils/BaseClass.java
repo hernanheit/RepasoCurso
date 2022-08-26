@@ -97,7 +97,7 @@ public class BaseClass {
     }
 
     //cerrarBrowser
-    public void cerrarBrowser(){
+    public  void cerrarBrowser(){
         this.driver.close();
     }
 
@@ -128,4 +128,6 @@ public class BaseClass {
     public String obtenerUrlPagina(){
         return this.driver.getCurrentUrl();
     }
+
 }
+

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.HomePage;
+import pages.ResultadoDeBusquedaPage;
 import pages.StartPage;
 import pages.WelcomePage;
 import utils.DataDriven;
@@ -20,6 +21,7 @@ public class Tests {
     private WelcomePage welcomePage;
     private StartPage startPage;
     private ArrayList<String> dataCPs;
+    private ResultadoDeBusquedaPage resultadoDeBusquedaPage;
 
     @AfterMethod
     public void posPrueba(){
@@ -37,10 +39,16 @@ public class Tests {
         welcomePage = new WelcomePage(homePage.getDriver());
         startPage = new StartPage(homePage.getDriver());
         homePage.cargarSitio(PropertiesDriven.getProperty("url"));
-        //resultadoDeBusquedaPage = new ResultadoDeBusquedaPage(welcomePage.getDriver());
+        resultadoDeBusquedaPage = new ResultadoDeBusquedaPage(welcomePage.getDriver());
         homePage.maximizarBrowser();
 
     }
+
+    //@BeforeMethod
+    //public void preparacionPrueba(){
+    //    homePage.cargarSitio(PropertiesDriven.getProperty("url"));
+    //    homePage.maximizarBrowser();
+    //}
 
     @Test
     public void CP001_login_fallido(){
@@ -49,7 +57,7 @@ public class Tests {
 
         //homePage.esperarXSegundos(60000);
 
-        homePage.pasarEspanol();
+        //homePage.PasarEspanol();
 
         homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
 
@@ -64,7 +72,7 @@ public class Tests {
 
         //homePage.esperarXSegundos(60000);
 
-        homePage.pasarEspanol();
+        //homePage.PasarEspanol();
 
         homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
 
@@ -77,9 +85,8 @@ public class Tests {
         //Preparar data
         dataCPs = DataDriven.getData("CP003_cerrar_sesion");
 
-        homePage.pasarEspanol();
-        homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
-        welcomePage.cerrarSesion();
+        //homePage.PasarEspanol();
+        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
 
         Assert.assertEquals(homePage.obtenerIniciarSesion(), dataCPs.get(3));
 
@@ -98,8 +105,24 @@ public class Tests {
         Assert.assertEquals(resultado,dataCPs.get(3));
 
     }
+    public void CP005_buscar_persona(){
+        dataCPs = DataDriven.getData("CP005_buscar_persona");
+        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        welcomePage.buscarPag(dataCPs.get(3));
+        welcomePage.clickBuscar();
+        Assert.assertEquals(resultadoDeBusquedaPage.ResultadoDeBusqueda().toLowerCase(), dataCPs.get(3).toLowerCase());
+     }
 
     @Test
+    public void CP006_enviar_solicitud(){
+        dataCPs = DataDriven.getData("CP006_enviar_solicitud");
+        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        welcomePage.buscarPag(dataCPs.get(3));
+        welcomePage.clickBuscar();
+        resultadoDeBusquedaPage.irAlPerfil();
+        resultadoDeBusquedaPage.enviarSolicitud();
+        Assert.assertEquals(resultadoDeBusquedaPage.solicitudEnviada(),dataCPs.get(4));
+}
     public void CP010_crear_historia(){
         dataCPs = DataDriven.getData("CP010_crear_historia");
         homePage.pasarEspanol();
@@ -110,19 +133,32 @@ public class Tests {
         Assert.assertEquals(resultado,dataCPs.get(3));
     }
 
-    /*@Test
-    public void CP006()
+
+
+    @Test
+    public void CP007_cancelar_solicitud(){
+        dataCPs = DataDriven.getData("CP007_cancelar_solicitud");
+        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        welcomePage.buscarPag(dataCPs.get(3));
+        welcomePage.clickBuscar();
+        resultadoDeBusquedaPage.irAlPerfil();
+        resultadoDeBusquedaPage.cancelarSolicitud();
+        Assert.assertEquals(resultadoDeBusquedaPage.solicitudCancelada(),dataCPs.get(4));
+
     }
 
     @Test
-    public void CP007(){
-
+    public void CP008_Darle_Me_gusta_a_una_pagina(){
+        dataCPs = DataDriven.getData("CP008_meGusta_pagina");
+        homePage.IniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        welcomePage.buscarPag(dataCPs.get(3));
+        welcomePage.obtenerPagBuscada();
+        if (welcomePage.obtenerPagBuscada().contains(dataCPs.get(3))){
+            welcomePage.irAPagBuscada();
+        }
+        resultadoDeBusquedaPage.darMeGusta();
+        Assert.assertEquals(resultadoDeBusquedaPage.obtenerMeGusta(), dataCPs.get(4));
     }
 
-    @Test
-    public void CP008(){
-
-    }
-    */
 
 }
