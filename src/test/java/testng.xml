@@ -4,9 +4,14 @@
         <classes>
             <class name="tests.Tests">
                 <methods>
+                    <include name="CP001_login_fallido"/>
                     <include name="CP002_login_exitoso"/>
                     <include name="CP003_cerrar_sesion"/>
                     <include name="CP010_crear_historia"/>
+                    <include name="CP005_buscar_persona"/>
+                    <include name="CP006_enviar_solicitud"/>
+                    <include name="CP007_cancelar_solicitud"/>
+                    <include name="CP008_Darle_Me_gusta_a_una_pagina"/>
                     <include name="CP004_modo_oscuro"/>
                 </methods>
 			</class>

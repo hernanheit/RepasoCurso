@@ -5,8 +5,8 @@
     <classes>
       <class name="tests.Tests">
         <methods>
-          <include name="CP004_modo_oscuro"/>
           <include name="preparacionEjecucion"/>
+          <include name="CP008_Darle_Me_gusta_a_una_pagina"/>
           <include name="posPrueba"/>
         </methods>
       </class> <!-- tests.Tests -->

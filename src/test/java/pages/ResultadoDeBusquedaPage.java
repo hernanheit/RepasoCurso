@@ -10,7 +10,7 @@ public class ResultadoDeBusquedaPage extends BaseClass {
         super(driver);
     }
 
-    By locatorBtnMeGustaTsoft = By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]/a[1]/div[1]/div[1]");
+    By locatorBtnMeGustaTsoft = By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]/div[1]");
 
     By locatorBtnMeGustaDadoTsoft = By.xpath("//span[contains(text(),'Te gusta')]");
     By locatorBtnAgregar = By.xpath("//span[contains(text(),'Agregar')]");

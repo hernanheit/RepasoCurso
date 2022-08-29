@@ -27,7 +27,12 @@ public class HomePage extends BaseClass {
     }
 
     public void pasarEspanol() {
-        click(esperaExplicita(locatorBtnEspanol));
+        esperarXSegundos(500);
+        try {
+            click(locatorBtnEspanol);
+        } catch (Exception e) {
+            System.out.println("Ya está en español.");
+        }
     }
     public String obtenerErrorLogin(){
         return obtenerTexto(esperaExplicita(locatorLblError));

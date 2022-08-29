@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Suite_pruebas_de_regresión" class="navigator-link">
-              <span class="suite-name border-passed">Suite pruebas de regresión</span>
+              <span class="suite-name border-failed">Suite pruebas de regresión</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods,   4 passed</span>
+                    <span class="method-stats">7 methods, 1 failed,   6 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite_pruebas_de_regresión" class="hide-methods failed suite-Suite_pruebas_de_regresión"> (hide)</a> <!-- hide-methods failed suite-Suite_pruebas_de_regresión -->
+                      <a href="#" panel-name="suite-Suite_pruebas_de_regresión" class="show-methods failed suite-Suite_pruebas_de_regresión"> (show)</a> <!-- show-methods failed suite-Suite_pruebas_de_regresión -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite_pruebas_de_regresión">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite_pruebas_de_regresión" title="tests.Tests" class="method navigator-link" hash-for-method="CP008_Darle_Me_gusta_a_una_pagina">CP008_Darle_Me_gusta_a_una_pagina</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite_pruebas_de_regresión -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -100,6 +114,11 @@
                       <a href="#" panel-name="suite-Suite_pruebas_de_regresión" class="show-methods passed suite-Suite_pruebas_de_regresión"> (show)</a> <!-- show-methods passed suite-Suite_pruebas_de_regresión -->
                     </span>
                     <div class="method-list-content passed suite-Suite_pruebas_de_regresión">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite_pruebas_de_regresión" title="tests.Tests" class="method navigator-link" hash-for-method="CP001_login_fallido">CP001_login_fallido</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite_pruebas_de_regresión" title="tests.Tests" class="method navigator-link" hash-for-method="CP002_login_exitoso">CP002_login_exitoso</a> <!-- method navigator-link -->
@@ -117,7 +136,12 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite_pruebas_de_regresión" title="tests.Tests" class="method navigator-link" hash-for-method="CP010_crear_historia">CP010_crear_historia</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite_pruebas_de_regresión" title="tests.Tests" class="method navigator-link" hash-for-method="CP006_enviar_solicitud">CP006_enviar_solicitud</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite_pruebas_de_regresión" title="tests.Tests" class="method navigator-link" hash-for-method="CP007_cancelar_solicitud">CP007_cancelar_solicitud</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite_pruebas_de_regresión -->
@@ -132,12 +156,65 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite_pruebas_de_regresión" class="panel Suite_pruebas_de_regresión">
+          <div class="suite-Suite_pruebas_de_regresión-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">tests.Tests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="CP008_Darle_Me_gusta_a_una_pagina">
+                  </a> <!-- CP008_Darle_Me_gusta_a_una_pagina -->
+                  <span class="method-name">CP008_Darle_Me_gusta_a_una_pagina</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: /html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]/a[1]/div[1]/div[1] (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at utils.BaseClass.esperaExplicita(BaseClass.java:54)
+	at pages.ResultadoDeBusquedaPage.darMeGusta(ResultadoDeBusquedaPage.java:26)
+	at tests.Tests.CP008_Darle_Me_gusta_a_una_pagina(Tests.java:161)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]/a[1]/div[1]/div[1]&quot;}
+  (Session info: chrome=104.0.5112.102)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-M1A2ER6&apos;, ip: &apos;192.168.0.192&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;18.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 104.0.5112.102, chrome: {chromedriverVersion: 104.0.5112.79 (3cf3e8c8a07d..., userDataDir: C:\Users\Joma\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:62560}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: fe91707cacdd3b09f2da4dea9948c155
+*** Element info: {Using=xpath, value=/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]/a[1]/div[1]/div[1]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:182)
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:179)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 30 more
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite_pruebas_de_regresión-class-failed -->
           <div class="suite-Suite_pruebas_de_regresión-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
               <span class="class-name">tests.Tests</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="CP001_login_fallido">
+                  </a> <!-- CP001_login_fallido -->
+                  <span class="method-name">CP001_login_fallido</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="CP002_login_exitoso">
@@ -161,9 +238,16 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="CP010_crear_historia">
-                  </a> <!-- CP010_crear_historia -->
-                  <span class="method-name">CP010_crear_historia</span>
+                  <a name="CP006_enviar_solicitud">
+                  </a> <!-- CP006_enviar_solicitud -->
+                  <span class="method-name">CP006_enviar_solicitud</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="CP007_cancelar_solicitud">
+                  </a> <!-- CP007_cancelar_solicitud -->
+                  <span class="method-name">CP007_cancelar_solicitud</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -182,9 +266,14 @@
     &lt;classes&gt;
       &lt;class name=&quot;tests.Tests&quot;&gt;
         &lt;methods&gt;
+          &lt;include name=&quot;CP001_login_fallido&quot;/&gt;
           &lt;include name=&quot;CP002_login_exitoso&quot;/&gt;
           &lt;include name=&quot;CP003_cerrar_sesion&quot;/&gt;
           &lt;include name=&quot;CP010_crear_historia&quot;/&gt;
+          &lt;include name=&quot;CP005_buscar_persona&quot;/&gt;
+          &lt;include name=&quot;CP006_enviar_solicitud&quot;/&gt;
+          &lt;include name=&quot;CP007_cancelar_solicitud&quot;/&gt;
+          &lt;include name=&quot;CP008_Darle_Me_gusta_a_una_pagina&quot;/&gt;
           &lt;include name=&quot;CP004_modo_oscuro&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- tests.Tests --&gt;
@@ -227,28 +316,40 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(7);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'CP010_crear_historia')
+data.setCell(0, 1, 'CP008_Darle_Me_gusta_a_una_pagina')
 data.setCell(0, 2, 'tests.Tests')
-data.setCell(0, 3, 11520);
+data.setCell(0, 3, 32556);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'CP004_modo_oscuro')
+data.setCell(1, 1, 'CP007_cancelar_solicitud')
 data.setCell(1, 2, 'tests.Tests')
-data.setCell(1, 3, 5814);
+data.setCell(1, 3, 24215);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'CP003_cerrar_sesion')
+data.setCell(2, 1, 'CP006_enviar_solicitud')
 data.setCell(2, 2, 'tests.Tests')
-data.setCell(2, 3, 5011);
+data.setCell(2, 3, 24124);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'CP002_login_exitoso')
 data.setCell(3, 2, 'tests.Tests')
-data.setCell(3, 3, 3781);
+data.setCell(3, 3, 10127);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'CP004_modo_oscuro')
+data.setCell(4, 2, 'tests.Tests')
+data.setCell(4, 3, 4862);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'CP003_cerrar_sesion')
+data.setCell(5, 2, 'tests.Tests')
+data.setCell(5, 3, 4486);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'CP001_login_fallido')
+data.setCell(6, 2, 'tests.Tests')
+data.setCell(6, 3, 3211);
 window.suiteTableData['Suite_pruebas_de_regresión']= { tableData: data, tableDiv: 'times-div-Suite_pruebas_de_regresión'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 26 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Suite_pruebas_de_regresión">
               </div> <!-- times-div-Suite_pruebas_de_regresión -->
             </div> <!-- times-div -->
@@ -263,16 +364,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite_pruebas_de_regresión" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">1 ignored method</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">tests.Tests</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">CP001_login_fallido</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Suite_pruebas_de_regresión" class="panel">
@@ -287,48 +381,86 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">CP002_login_exitoso</span>
-                <span class="method-start">1577 ms</span>
+                <span class="method-name">CP001_login_fallido</span>
+                <span class="method-start">2341 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">posPrueba</span>
-                <span class="method-start">5358 ms</span>
+                <span class="method-start">5553 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">preparacionEjecucion</span>
-                <span class="method-start">7760 ms</span>
+                <span class="method-start">7948 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">CP002_login_exitoso</span>
+                <span class="method-start">9916 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">posPrueba</span>
+                <span class="method-start">20043 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">preparacionEjecucion</span>
+                <span class="method-start">22437 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">CP003_cerrar_sesion</span>
-                <span class="method-start">9234 ms</span>
+                <span class="method-start">24336 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">posPrueba</span>
-                <span class="method-start">14245 ms</span>
+                <span class="method-start">28822 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">preparacionEjecucion</span>
-                <span class="method-start">16646 ms</span>
+                <span class="method-start">31220 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">CP010_crear_historia</span>
-                <span class="method-start">18153 ms</span>
+                <span class="method-name">CP006_enviar_solicitud</span>
+                <span class="method-start">33121 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">posPrueba</span>
-                <span class="method-start">29673 ms</span>
+                <span class="method-start">57245 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">preparacionEjecucion</span>
-                <span class="method-start">32074 ms</span>
+                <span class="method-start">59645 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">CP007_cancelar_solicitud</span>
+                <span class="method-start">61582 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">posPrueba</span>
+                <span class="method-start">85798 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">preparacionEjecucion</span>
+                <span class="method-start">85909 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">CP008_Darle_Me_gusta_a_una_pagina</span>
+                <span class="method-start">87831 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">posPrueba</span>
+                <span class="method-start">120389 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">preparacionEjecucion</span>
+                <span class="method-start">122790 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">CP004_modo_oscuro</span>
-                <span class="method-start">33613 ms</span>
+                <span class="method-start">124790 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">posPrueba</span>
-                <span class="method-start">39427 ms</span>
+                <span class="method-start">129652 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

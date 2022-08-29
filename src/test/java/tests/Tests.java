@@ -41,6 +41,7 @@ public class Tests {
         homePage.cargarSitio(PropertiesDriven.getProperty("url"));
         resultadoDeBusquedaPage = new ResultadoDeBusquedaPage(welcomePage.getDriver());
         homePage.maximizarBrowser();
+        homePage.pasarEspanol();
 
     }
 
@@ -57,8 +58,6 @@ public class Tests {
 
         //homePage.esperarXSegundos(60000);
 
-        //homePage.PasarEspanol();
-
         homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
 
         Assert.assertEquals(homePage.obtenerErrorLogin(), dataCPs.get(3));
@@ -72,8 +71,6 @@ public class Tests {
 
         //homePage.esperarXSegundos(60000);
 
-        //homePage.PasarEspanol();
-
         homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
 
         Assert.assertEquals(welcomePage.obtenerMsjBienvenida(), dataCPs.get(3));
@@ -85,8 +82,8 @@ public class Tests {
         //Preparar data
         dataCPs = DataDriven.getData("CP003_cerrar_sesion");
 
-        //homePage.PasarEspanol();
         homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
+        welcomePage.cerrarSesion();
 
         Assert.assertEquals(homePage.obtenerIniciarSesion(), dataCPs.get(3));
 
@@ -97,7 +94,6 @@ public class Tests {
         //Preparar data
         dataCPs = DataDriven.getData("CP004_modo_oscuro");
 
-        homePage.pasarEspanol();
         homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
         welcomePage.activarModoOscuro();
         String resultado = welcomePage.verificarModoOscuro();
@@ -125,7 +121,6 @@ public class Tests {
 }
     public void CP010_crear_historia(){
         dataCPs = DataDriven.getData("CP010_crear_historia");
-        homePage.pasarEspanol();
         homePage.iniciarSesion(dataCPs.get(1),dataCPs.get(2));
         welcomePage.irInicio();
         startPage.crearHistoria(dataCPs.get(3));
